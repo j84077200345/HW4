@@ -16,18 +16,18 @@ if (!require('Rfacebook')){
     library(Rfacebook)
 }
 
-token<-'CAACEdEose0cBAA0dCeZC8IOMabLZC1JAQ26fktSQpZA4D6xbWsC2xwEI6Ufe7L9WAm4i4K7ZCVrdzvhLi36vN6iVNwamTZA8JREH2jSujDR006tkZBnIPzEtgU2OgVOPZCevFhBZAEaevjprjrs5WdgZBJZCg6HAN7bjOzfyyJvU5j1OTzuVQZAGVOx424ZAUct8X2xuKhvFpZBcoVZAegVnPmb1Pb'
+token<-'CAACEdEose0cBAPZAxGRol9DFzsTbmk2CVqSZAGnnFPlhnQMgzZA2ChvW2FCvch29YVp8jM3ZBAif6OlZAcRFVFZAy8uZC4HggS9NnBIStkiWlZB5bGPEUeoedX7p6ppoZCJ96OcZCHZBsbXR5RQnqKsMbBPOn6poWHwCQaHbYVKzF2qQtv7R3XKkxxlZCwz3tAFZANKN0ediJXoY1IHt0L0rTrM2E'
 totalPage<-NULL
 lastDate<-Sys.Date()
 DateVectorStr<-as.character(seq(as.Date("2016-01-01"),lastDate,by="5 days"))
 for(i in 1:(length(DateVectorStr)-1)){
-    tempPage<-getPage("cherngs.y", token,
+    tempPage<-getPage("tsaiingwen", token,
                       since = DateVectorStr[i],until = DateVectorStr[i+1])
     totalPage<-rbind(totalPage,tempPage)
 }
 nrow(totalPage)
 ```
-2016/01/01至2016/04/06蔡英文粉絲團一共有60篇文章
+2016/01/01至2016/04/07蔡英文粉絲團一共有206篇文章
 ##每日發文數分析
 ```{r}
 totalPage$datetime <- as.POSIXct(totalPage$created_time, 
@@ -40,7 +40,7 @@ PostCount<-aggregate(id~dateTPE,totalPage,length)
 library(knitr)
 kable(head(PostCount[order(PostCount$id,decreasing = T),]))
 ```
-2016/04/01（週五）的發文數最多，一共有五篇，2016/01/23和2016/04/03居次，有可能是因為04/01是愚人節阿XDD  哈哈哈
+2016/01/15（週五）的發文數最多，一共有八篇，2016/01/11和2016/01/14居次，有可能是因為隔天就是投票日了，所以蔡英文才會多發幾篇文拉票。
 ##每日likes數分析
 ```{r}
 totalPage$datetime <- as.POSIXct(totalPage$created_time, 
@@ -53,7 +53,7 @@ PostCount<-aggregate(likes_count~dateTPE,totalPage,mean)
 library(knitr)
 kable(head(PostCount[order(PostCount$likes_count,decreasing = T),]))
 ```
-2016/01/24（週日）的按讚數最多，一共有6萬多人，2016/03/21和2016/3/07居次，由此可知自從她當選總統後按讚數與日俱增。
+2016/01/17（週日）的按讚數最多，一共有26萬多人，2016/01/16和2016/3/29居次，由此可知自從她當選總統後，人氣因此而暴增。
 
 ##每日comments數分析
 ```{r}
@@ -67,7 +67,7 @@ CommentCount<-aggregate(comments_count~dateTPE,totalPage,mean)
 library(knitr)
 kable(head(CommentCount[order(CommentCount$comments_count,decreasing = T),]))
 ```
-2016/01/13（週三）的留言數最多，一共有2千多筆，2016/01/14和2016/3/24居次，可能是因為總統大選而導致留言數暴增。
+2016/01/20（週三）的留言數最多，一共有2萬七千多筆，2016/01/21和2016/01/17居次，由此表可推測自從當選總統後，蔡英文發文的留言評論突然暴增。
 ##每日shares數分析
 ```{r}
 totalPage$datetime <- as.POSIXct(totalPage$created_time, 
@@ -80,4 +80,4 @@ ShareCount<-aggregate(shares_count~dateTPE,totalPage,mean)
 library(knitr)
 kable(head(ShareCount[order(ShareCount$shares_count,decreasing = T),]))
 ```
-2016/03/24（週四）的分享數最多，一共有1千八百多筆，2016/01/13和2016/2/06居次，可能與央行3月24日召開理事會、提出新的政策決議有關。
+2016/03/29（週四）的分享數最多，一共有1千八百多筆，2016/01/16和2016/01/17居次，主要是因為3月29號當天，小英PO了一篇緬懷小燈泡斷頭慘案的文章，而有不少的回響。
