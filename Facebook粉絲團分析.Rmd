@@ -41,6 +41,7 @@ library(knitr)
 kable(head(PostCount[order(PostCount$id,decreasing = T),]))
 ```
 2016/04/01（週五）的發文數最多，一共有五篇，2016/01/23和2016/04/03居次，有可能是因為04/01是愚人節阿XDD  哈哈哈
+
 |   |dateTPE    | id|
 |:--|:----------|--:|
 |39 |2016-04-01 |  5|
