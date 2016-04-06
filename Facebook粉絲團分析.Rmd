@@ -20,7 +20,7 @@ if (!require('Rfacebook')){
     library(Rfacebook)
 }
 
-token<-'CAACEdEose0cBAGhaOpxUVxkbA45Nbcoc5ZB8edadRF7EmEIZA0QHCVZA2OdhzUZAZBMH8ZBh8dI8FJFwpdeHno4aqhOpnZCsfgqxVBMZCDPHFNx952ulnkBu5EVAs3OYAqxLAC51v01FZCh1xniFCwoZASaRjGjdUXtJFplJr0nnkmMTjqvcrjD4pZBnJUZAmHtPZAUmQf7ptzoYtZBn6Sb9ytsS2h'
+token<-'CAACEdEose0cBAA0dCeZC8IOMabLZC1JAQ26fktSQpZA4D6xbWsC2xwEI6Ufe7L9WAm4i4K7ZCVrdzvhLi36vN6iVNwamTZA8JREH2jSujDR006tkZBnIPzEtgU2OgVOPZCevFhBZAEaevjprjrs5WdgZBJZCg6HAN7bjOzfyyJvU5j1OTzuVQZAGVOx424ZAUct8X2xuKhvFpZBcoVZAegVnPmb1Pb'
 totalPage<-NULL
 lastDate<-Sys.Date()
 DateVectorStr<-as.character(seq(as.Date("2016-01-01"),lastDate,by="5 days"))
@@ -58,3 +58,8 @@ library(knitr)
 kable(head(PostCount[order(PostCount$likes_count,decreasing = T),]))
 ```
 2016/01/24（週日）的按讚數最多，一共有6萬多人，2016/03/21和2016/3/07居次，由此可知自從她當選總統後按讚數與日俱增。
+
+##每日comments數分析
+```{r}
+
+```
