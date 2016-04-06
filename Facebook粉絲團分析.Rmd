@@ -40,6 +40,14 @@ PostCount<-aggregate(id~dateTPE,totalPage,length)
 library(knitr)
 kable(head(PostCount[order(PostCount$id,decreasing = T),]))
 ```
+|   |dateTPE    | id|
+|:--|:----------|--:|
+|15 |2016-01-15 |  8|
+|11 |2016-01-11 |  7|
+|14 |2016-01-14 |  7|
+|8  |2016-01-08 |  6|
+|10 |2016-01-10 |  6|
+|13 |2016-01-13 |  6|
 2016/01/15（週五）的發文數最多，一共有八篇，2016/01/11和2016/01/14居次，有可能是因為隔天就是投票日了，所以蔡英文才會多發幾篇文拉票。
 ##每日likes數分析
 ```{r}
@@ -53,6 +61,14 @@ PostCount<-aggregate(likes_count~dateTPE,totalPage,mean)
 library(knitr)
 kable(head(PostCount[order(PostCount$likes_count,decreasing = T),]))
 ```
+|   |dateTPE    | likes_count|
+|:--|:----------|-----------:|
+|17 |2016-01-17 |    260422.0|
+|16 |2016-01-16 |    241246.2|
+|89 |2016-03-29 |    189483.0|
+|20 |2016-01-20 |    121719.5|
+|42 |2016-02-11 |    113709.0|
+|39 |2016-02-08 |    101002.0|
 2016/01/17（週日）的按讚數最多，一共有26萬多人，2016/01/16和2016/3/29居次，由此可知自從她當選總統後，人氣因此而暴增。
 
 ##每日comments數分析
@@ -67,6 +83,14 @@ CommentCount<-aggregate(comments_count~dateTPE,totalPage,mean)
 library(knitr)
 kable(head(CommentCount[order(CommentCount$comments_count,decreasing = T),]))
 ```
+|   |dateTPE    | comments_count|
+|:--|:----------|--------------:|
+|20 |2016-01-20 |      27995.000|
+|21 |2016-01-21 |      16111.667|
+|17 |2016-01-17 |      10524.000|
+|19 |2016-01-19 |       9389.000|
+|18 |2016-01-18 |       9130.000|
+|16 |2016-01-16 |       8220.667|
 2016/01/20（週三）的留言數最多，一共有2萬七千多筆，2016/01/21和2016/01/17居次，由此表可推測自從當選總統後，蔡英文發文的留言評論突然暴增。
 ##每日shares數分析
 ```{r}
@@ -80,4 +104,12 @@ ShareCount<-aggregate(shares_count~dateTPE,totalPage,mean)
 library(knitr)
 kable(head(ShareCount[order(ShareCount$shares_count,decreasing = T),]))
 ```
+|   |dateTPE    | shares_count|
+|:--|:----------|------------:|
+|89 |2016-03-29 |     6258.000|
+|16 |2016-01-16 |     4193.333|
+|17 |2016-01-17 |     3813.000|
+|38 |2016-02-07 |     3119.000|
+|18 |2016-01-18 |     3009.000|
+|42 |2016-02-11 |     2569.000|
 2016/03/29（週四）的分享數最多，一共有1千八百多筆，2016/01/16和2016/01/17居次，主要是因為3月29號當天，小英PO了一篇緬懷小燈泡斷頭慘案的文章，而有不少的回響。
