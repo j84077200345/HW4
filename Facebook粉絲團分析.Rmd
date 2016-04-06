@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 程式説明：分析民進黨員蔡英文粉絲專頁，資料分析區間為2016/01/01 至 2016/04/06
 
 ##讀取蔡英文粉絲團資料
+```{r}
 if (!require('Rfacebook')){
     install.packages("Rfacebook")
     library(Rfacebook)
@@ -29,3 +30,4 @@ for(i in 1:(length(DateVectorStr)-1)){
     totalPage<-rbind(totalPage,tempPage)
 }
 nrow(totalPage)
+```
