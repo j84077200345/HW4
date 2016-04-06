@@ -45,3 +45,16 @@ library(knitr)
 kable(head(PostCount[order(PostCount$id,decreasing = T),]))
 ```
 2016/04/01（週五）的發文數最多，一共有五篇，2016/01/23和2016/04/03居次，有可能是因為04/01是愚人節阿XDD  哈哈哈
+##每日likes數分析
+```{r}
+totalPage$datetime <- as.POSIXct(totalPage$created_time, 
+                                 format = "%Y-%m-%dT%H:%M:%S+0000", 
+                                 tz = "GMT") #2016-01-16T15:05:36+0000
+totalPage$dateTPE <- format(totalPage$datetime, "%Y-%m-%d", 
+                            tz = "Asia/Taipei") #2016-01-16
+totalPage$weekdays <-weekdays(as.Date(totalPage$dateTPE))
+PostCount<-aggregate(likes_count~dateTPE,totalPage,mean)
+library(knitr)
+kable(head(PostCount[order(PostCount$likes_count,decreasing = T),]))
+```
+2016/01/24（週日）的按讚數最多，一共有6萬多人，2016/03/21和2016/3/07居次，由此可知自從她當選總統後按讚數與日俱增。
