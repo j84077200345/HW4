@@ -7,10 +7,6 @@ subtitle: 資料讀取與處理
 highlighter: highlight.js
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 程式説明：分析民進黨員蔡英文粉絲專頁，資料分析區間為2016/01/01 至 2016/04/06
 
 ##讀取蔡英文粉絲團資料
