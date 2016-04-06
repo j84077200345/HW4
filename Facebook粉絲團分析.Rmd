@@ -1,9 +1,9 @@
 ---
-title: "Facebook¯»µ·¹Î¤ÀªR"
+title: "Facebookç²‰çµ²åœ˜åˆ†æ"
 author: "B0244213"
-date: "2016¦~4¤ë6¤é"
-output: html_document
-subtitle: ¸ê®ÆÅª¨ú»P³B²z
+date: "2016å¹´4æœˆ6æ—¥"
+output: ioslides_presentation
+subtitle: è³‡æ–™è®€å–èˆ‡è™•ç†
 highlighter: highlight.js
 ---
 
