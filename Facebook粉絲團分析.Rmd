@@ -67,4 +67,17 @@ CommentCount<-aggregate(comments_count~dateTPE,totalPage,mean)
 library(knitr)
 kable(head(CommentCount[order(CommentCount$comments_count,decreasing = T),]))
 ```
-2016/01/13（週日）的留言數最多，一共有2千多筆，2016/01/14和2016/3/24居次，可能是因為總統大選而導致留言數暴增。
+2016/01/13（週三）的留言數最多，一共有2千多筆，2016/01/14和2016/3/24居次，可能是因為總統大選而導致留言數暴增。
+##每日shares數分析
+```{r}
+totalPage$datetime <- as.POSIXct(totalPage$created_time, 
+                                 format = "%Y-%m-%dT%H:%M:%S+0000", 
+                                 tz = "GMT") #2016-01-16T15:05:36+0000
+totalPage$dateTPE <- format(totalPage$datetime, "%Y-%m-%d", 
+                            tz = "Asia/Taipei") #2016-01-16
+totalPage$weekdays <-weekdays(as.Date(totalPage$dateTPE))
+ShareCount<-aggregate(shares_count~dateTPE,totalPage,mean)
+library(knitr)
+kable(head(ShareCount[order(ShareCount$shares_count,decreasing = T),]))
+```
+2016/03/24（週四）的分享數最多，一共有1千八百多筆，2016/01/13和2016/2/06居次，可能與央行3月24日召開理事會、提出新的政策決議有關。
