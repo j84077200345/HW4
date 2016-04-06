@@ -49,6 +49,15 @@ kable(head(PostCount[order(PostCount$id,decreasing = T),]))
 |5  |2016-01-14 |  2|
 |6  |2016-01-16 |  2|
 2016/04/01（週五）的發文數最多，一共有五篇，2016/01/23和2016/04/03居次，有可能是因為04/01是愚人節阿XDD  哈哈哈
+
+|   |dateTPE    | id|
+|:--|:----------|--:|
+|39 |2016-04-01 |  5|
+|11 |2016-01-23 |  3|
+|40 |2016-04-03 |  3|
+|1  |2016-01-01 |  2|
+|5  |2016-01-14 |  2|
+|6  |2016-01-16 |  2|
 ##每日likes數分析
 ```{r}
 totalPage$datetime <- as.POSIXct(totalPage$created_time, 
@@ -61,7 +70,10 @@ PostCount<-aggregate(likes_count~dateTPE,totalPage,mean)
 library(knitr)
 kable(head(PostCount[order(PostCount$likes_count,decreasing = T),]))
 ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 |   |dateTPE    | likes_count|
 |:--|:----------|-----------:|
 |12 |2016-01-24 |     62419.0|
